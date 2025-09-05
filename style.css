@@ -1,41 +1,41 @@
 @font-face {
   font-family: "Next-ART";
-  src: url("../assets/fonts/Next-ART_Bold.otf") format("truetype");
+  src: url("./assets/fonts/Next-ART_Bold.otf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "NunitoSans";
-  src: url("../assets/fonts/NunitoSans-Light.ttf") format("truetype");
+  src: url("./assets/fonts/NunitoSans-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "NunitoSans";
-  src: url("../assets/fonts/NunitoSans-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/NunitoSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "NunitoSans";
-  src: url("../assets/fonts/NunitoSans-SemiBold.ttf") format("truetype");
+  src: url("./assets/fonts/NunitoSans-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "NunitoSans";
-  src: url("../assets/fonts/NunitoSans-Bold.ttf") format("truetype");
+  src: url("./assets/fonts/NunitoSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "NunitoSans";
-  src: url("../assets/fonts/NunitoSans-ExtraBold.ttf") format("truetype");
+  src: url("./assets/fonts/NunitoSans-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -230,14 +230,21 @@ footer {
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 }
 .input-box label {
   cursor: pointer;
+  font-size: 14px;
+  padding: 9px 0 0 10px;
 }
 .input-box label.label-icon {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 17px;
+  right: 12px;
+  padding: 0;
+}
+.input-box:hover .date-input::placeholder {
+  color: #F2BE22;
 }
 .input-box:hover .date-input + label {
   color: #F2BE22;
@@ -303,6 +310,7 @@ footer {
 }
 .header__mobile-container {
   display: flex;
+  align-items: center;
   gap: 38px;
 }
 .header__mobile-container.show {
@@ -341,14 +349,14 @@ footer {
 
 .first-screen {
   min-height: 985px;
-  background: url(../assets/img/banner.png) center/cover no-repeat;
+  background: url(./assets/img/banner.png) center/cover no-repeat;
 }
 
 @media (min-width: 1025px) {
   .hamburger {
     display: none;
   }
-  svg {
+  .header__nav-link svg {
     display: none;
   }
   .header__mobile-container {
@@ -366,6 +374,7 @@ footer {
   .header__mobile-container {
     flex-direction: column;
     position: absolute;
+    align-items: flex-start;
     top: 0;
     right: 0;
     width: 100%;
@@ -400,7 +409,6 @@ footer {
     font-size: 14px;
     font-weight: 400;
     display: flex;
-    align-items: center;
   }
   .header__nav-link svg {
     display: inline-block;
