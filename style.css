@@ -7,36 +7,8 @@
 }
 @font-face {
   font-family: "NunitoSans";
-  src: url("./assets/fonts/NunitoSans-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "NunitoSans";
-  src: url("./assets/fonts/NunitoSans-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "NunitoSans";
-  src: url("./assets/fonts/NunitoSans-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "NunitoSans";
-  src: url("./assets/fonts/NunitoSans-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "NunitoSans";
-  src: url("./assets/fonts/NunitoSans-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
+  src: url("./assets/fonts/NunitoSans.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -69,6 +41,7 @@ button {
   cursor: pointer;
 }
 
+a,
 input,
 button,
 textarea,
@@ -80,11 +53,12 @@ input {
   background-color: transparent;
   border: 1px solid #e1e3e4;
   border-radius: 8px;
-  padding: 16px;
+  padding: 13px 16px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
   color: #FDFDFD;
+  max-width: 270px;
 }
 input::placeholder {
   color: #FDFDFD;
@@ -196,7 +170,7 @@ footer {
   border-radius: 4px;
   font-weight: 600;
   line-height: 1;
-  padding: 13px 22px;
+  padding: 13px 24px;
   transition: 0.3s;
   display: inline-block;
 }
@@ -214,6 +188,7 @@ footer {
 }
 .btn.btn_lg {
   padding: 17px 34px;
+  font-weight: 700;
 }
 .btn.btn_secondary {
   border: 1px solid #FDFDFD;
@@ -235,12 +210,13 @@ footer {
 .input-box label {
   cursor: pointer;
   font-size: 14px;
+  font-weight: 400;
   padding: 9px 0 0 10px;
 }
 .input-box label.label-icon {
   position: absolute;
   top: 17px;
-  right: 12px;
+  right: 15px;
   padding: 0;
 }
 .input-box:hover .date-input::placeholder {
@@ -258,8 +234,10 @@ footer {
   font-weight: 700;
   font-size: 16px;
   color: #FDFDFD;
-  height: 58px;
-  line-height: 58px;
+  height: 52px;
+  line-height: 52px;
+  width: 100%;
+  max-width: 270px;
 }
 .nice-select:after {
   border-bottom: 2px solid #FDFDFD;
@@ -267,7 +245,7 @@ footer {
   height: 11px;
   width: 11px;
   margin-top: -8px;
-  right: 16px;
+  right: 19px;
 }
 .nice-select .nice-select-dropdown {
   background-color: rgba(255, 255, 255, 0.2);
@@ -287,7 +265,8 @@ footer {
   overflow: hidden;
 }
 
-.d-none {
+.d-none,
+.hidden-select {
   display: none;
 }
 
@@ -324,6 +303,8 @@ footer {
   display: inline-block;
   color: #FDFDFD;
   font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.12px;
 }
 .header__nav-link:hover {
   text-decoration: none;
@@ -348,8 +329,31 @@ footer {
 }
 
 .first-screen {
-  min-height: 985px;
+  height: max(100vh, 985px);
+  padding-bottom: 82px;
   background: url(./assets/img/banner.png) center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+.first-screen__title {
+  margin-bottom: 41px;
+  color: #FDFDFD;
+  font-family: "Next-ART";
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.first-screen__form {
+  padding: 39px 42px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  display: flex;
+  align-items: start;
+  gap: 24px;
+}
+.first-screen .input-box:last-child {
+  max-width: 213px;
 }
 
 @media (min-width: 1025px) {
@@ -380,11 +384,12 @@ footer {
     width: 100%;
     height: 100%;
     background-color: #1A3E3E;
-    padding: 50px 16px;
+    padding: 68px 16px;
     display: none;
   }
   .header__mobile-container .btn {
     max-width: 320px;
+    width: 100%;
     margin: auto auto 0;
     border: 1px solid #FDFDFD;
     background-color: #FDFDFD;
