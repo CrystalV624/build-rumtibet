@@ -219,7 +219,7 @@ footer {
 .btn.btn_secondary:hover {
   background-color: #1A3E3E;
   color: #FDFDFD;
-  border-color: #1A3E3E;
+  border-color: #FDFDFD;
 }
 
 .input-box {
@@ -454,7 +454,7 @@ footer {
   .header__mobile-container .btn:hover {
     background-color: #1A3E3E;
     color: #FDFDFD;
-    border-color: #1A3E3E;
+    border-color: #FDFDFD;
   }
   .header__mobile-container .btn:hover {
     background-color: transparent;
