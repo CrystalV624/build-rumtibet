@@ -49,7 +49,7 @@ select {
   font-family: "NunitoSans";
 }
 
-input {
+input, textarea {
   background-color: transparent;
   border: 1px solid #e1e3e4;
   border-radius: 8px;
@@ -61,8 +61,17 @@ input {
   max-width: 270px;
   width: 100%;
 }
-input::placeholder {
+input::placeholder, textarea::placeholder {
   color: #FDFDFD;
+}
+
+textarea {
+  min-height: 128px;
+  max-height: 196px;
+}
+
+input::placeholder:not(.date-input), textarea::placeholder:not(.date-input) {
+  font-weight: 300;
 }
 
 label {
@@ -255,7 +264,7 @@ footer {
   cursor: pointer;
   font-size: 14px;
   font-weight: 400;
-  padding: 9px 0 0 10px;
+  padding: 0 0 0 10px;
 }
 .input-box label.label-icon {
   position: absolute;
@@ -292,8 +301,7 @@ footer {
   right: 19px;
 }
 .nice-select .nice-select-dropdown {
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
+  background-color: rgba(26, 62, 62, 0.6392156863);
 }
 .nice-select .option:hover,
 .nice-select .option.focus,
@@ -404,6 +412,9 @@ footer {
   display: flex;
   align-items: start;
   gap: 24px;
+}
+.first-screen .input-box label:not(.label-icon) {
+  padding-top: 9px;
 }
 .first-screen .input-box:last-child {
   max-width: 213px;
@@ -579,28 +590,59 @@ footer {
   opacity: 0;
   inset: 0;
   transition: opacity 0.5s, background-color 0.5s, backdrop-filter 0.5s;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   background-color: rgba(18, 18, 18, 0);
   backdrop-filter: blur(0px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .modal.show {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
   opacity: 1;
   z-index: 20;
-  background-color: rgba(18, 18, 18, 0.4509803922);
-  backdrop-filter: blur(10px);
 }
 .modal .nice-select,
-.modal input {
+.modal input,
+.modal textarea {
   max-width: 100%;
+}
+.modal .nice-select-dropdown {
+  background-color: #1A3E3E;
 }
 .modal-body {
   max-width: 450px;
   position: relative;
 }
 
-#close-modal {
+.modal-template.show {
+  background-color: rgba(92, 183, 255, 0.3019607843);
+}
+.modal-template .input-box label {
+  padding-top: 0;
+  font-size: 16px;
+}
+.modal-template .input-box input,
+.modal-template .input-box textarea {
+  color: #18121E;
+}
+
+.template-form-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid #F3F5F4;
+  border-radius: 12px;
+  padding: 36px 36px 48px;
+}
+
+.template-form {
+  display: grid;
+  gap: 24px;
+}
+
+.close-modal {
   position: absolute;
   right: -12px;
   top: 11px;
@@ -608,7 +650,7 @@ footer {
   border: none;
   background-color: transparent;
 }
-#close-modal:hover {
+.close-modal:hover {
   color: #F2BE22;
 }
 
