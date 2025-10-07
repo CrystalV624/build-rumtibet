@@ -193,45 +193,75 @@
                 </svg>
             </button>
             <form class="first-screen-form modal__first-screen-form">
-                <div class="input-box">
-                    <select name="locations" id="modal-locations-select" class="hidden-select" data-changed="false">
-                        <option value="kyiv">Киев</option>
-                        <option value="lviv">Львов</option>
-                        <option value="odesa">Одесса</option>
-                        <option value="carpathians">Карпаты</option>
-                        <option value="kamianets">Каменец-Подольский</option>
-                        <option value="chernivtsi">Черновцы</option>
-                        <option value="kharkiv">Харьков</option>
-                        <option value="dnipro">Днепр</option>
-                        <option value="uzhhorod">Ужгород</option>
-                        <option value="bukovel">Буковель</option>
-                    </select>
-                    <label for="modal-locations-select">выберите из списка</label>
+                <div class="steps">
+                    <div class="steps__first-step">
+                        <div class="input-box">
+                            <select name="locations" id="modal-locations-select" class="hidden-select" data-changed="false">
+                                <option value="" disabled selected>Выберите из списка</option>
+                                <option value="kyiv">Киев</option>
+                                <option value="lviv">Львов</option>
+                                <option value="odesa">Одесса</option>
+                                <option value="carpathians">Карпаты</option>
+                                <option value="kamianets">Каменец-Подольский</option>
+                                <option value="chernivtsi">Черновцы</option>
+                                <option value="kharkiv">Харьков</option>
+                                <option value="dnipro">Днепр</option>
+                                <option value="uzhhorod">Ужгород</option>
+                                <option value="bukovel">Буковель</option>
+                            </select>
+                            <label for="modal-locations-select">выберите из списка</label>
+                        </div>
+                        <div class="input-box">
+                            <input id="modal-date" class="date-input" type="text" placeholder="Дата похода" data-changed="false">
+                            <label for="modal-date" class="label-icon">
+                                <svg>
+                                    <use href="#date-icon"></use>
+                                </svg>
+                            </label>
+                            <label for="modal-date">выберете дату</label>
+                        </div>
+                        <div class="input-box">
+                            <select name="members" id="modal-members-select" class="hidden-select" data-changed="false">
+                                <option value="" disabled selected>Участники</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="more">более 10</option>
+                            </select>
+                            <label for="modal-members-select">минимум 4 человека</label>
+                        </div>
+                    </div>
+                    <div class="steps__second-step">
+                        <div class="input-box">
+                            <label for="progream-user-name">Имя</label>
+                            <input type="text" inputmode="text" name="program-user-name" id="program-name" placeholder="Введите свое имя">
+                        </div>
+                        <div class="input-box">
+                            <label for="program-user-number">Номер телефона</label>
+                            <input type="tel" inputmode="tel" name="program-user-number" id="program-number" placeholder="+380">
+                        </div>
+                        <div class="input-box">
+                            <label for="program-user-email">Email</label>
+                            <input type="email" inputmode="email" name="program-user-email" id="program-email" placeholder="Введите email">
+                        </div>
+                        <div class="input-box">
+                            <textarea name="letter" id="request-data" placeholder="Сопроводительное письмо"></textarea>
+                        </div>
+                    </div>
+                    <div class="steps__nav">
+                        <button type="button" class="btn btn_secondary btn_step-first btn_step-first">step 1</button>
+                        <button type="button" class="btn btn_secondary btn_step-second btn_step-second">step 2</button>
+                    </div>
                 </div>
                 <div class="input-box">
-                    <input id="modal-date" class="date-input" type="text" placeholder="Дата похода" data-changed="false">
-                    <label for="modal-date" class="label-icon">
-                        <svg>
-                            <use href="#date-icon"></use>
-                        </svg>
-                    </label>
-                    <label for="modal-date">выберете дату</label>
+                    <div class="message message__hidden"></div>
                 </div>
                 <div class="input-box">
-                    <select name="members" id="modal-members-select" class="hidden-select" data-changed="false">
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="more">более 10</option>
-                    </select>
-                    <label for="modal-members-select">минимум 4 человека</label>
-                </div>
-                <div class="input-box">
-                    <button type="button" class="btn btn_secondary btn_lg" disabled>Оставить заявку</button>
+                    <button type="button" id="submit-button" class="btn btn_secondary btn_lg">Оставить заявку</button>
                 </div>
             </form>
         </div>
@@ -317,7 +347,7 @@
         <symbol id="icon-arrow-right" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="Vector" d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z" fill="currentColor" />
         </symbol>
-        <symbol id="icon-close-modal" class="close-modal__svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-close-modal" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <path d="M213.333333,2.84217094e-14 L243.503223,30.1698893 L151.921,121.751 L243.503223,213.333333 L213.333333,243.503223 L121.751,151.921 L30.1698893,243.503223 L2.84217094e-14,213.333333 L91.582,121.751 L2.84217094e-14,30.1698893 L30.1698893,2.84217094e-14 L121.751,91.582 L213.333333,2.84217094e-14 Z" fill="currentColor"></path>
         </symbol>
         <symbol id="btn-play" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -348,6 +378,9 @@
         </symbol>
         <symbol id="loyal-prices" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M26.3006 9.44613L19.0547 4.83511V1.05469C19.0547 0.472219 18.5825 0 18 0C17.4175 0 16.9453 0.472219 16.9453 1.05469V4.83511L9.6994 9.44613C9.54971 9.54139 9.42647 9.67288 9.34109 9.82841C9.25571 9.98395 9.21094 10.1585 9.21094 10.3359V34.9453C9.21094 35.5278 9.68316 36 10.2656 36H25.7344C26.3168 36 26.7891 35.5278 26.7891 34.9453V10.3359C26.7891 9.97538 26.6048 9.63977 26.3006 9.44613ZM18 17.2969C16.0615 17.2969 14.4844 15.7198 14.4844 13.7812C14.4844 12.21 15.5205 10.8765 16.9453 10.4275V11.3203C16.9453 11.9028 17.4175 12.375 18 12.375C18.5825 12.375 19.0547 11.9028 19.0547 11.3203V10.4275C20.4795 10.8765 21.5156 12.21 21.5156 13.7812C21.5156 15.7198 19.9385 17.2969 18 17.2969Z" fill="currentColor" />
+        </symbol>
+        <symbol id="testimonials-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12 19.64 9.04999L14.81 8.64L12.92 4.17999C12.58 3.36999 11.42 3.36999 11.08 4.17999L9.19 8.62999L4.36 9.03999C3.48 9.10999 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z" fill="currentColor" />
         </symbol>
     </svg>
     <a href="ui-kit.html"
